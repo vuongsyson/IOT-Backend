@@ -1,0 +1,151 @@
+application {
+  config {
+    baseName gateway
+    applicationType gateway
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+    clientFramework angularX 
+  }
+  entities *
+}
+
+application {
+  config {
+    baseName authentication_apis_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities RefreshToken, UserAuth
+}
+
+application {
+  config {
+    baseName battery_apis_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities Battery, RentalHistory
+}
+
+application {
+  config {
+    baseName bss_apis_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities Bss, Cabinet
+} 
+
+application {
+  config {
+    baseName device_state_api_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities BatteryState
+}
+
+application {
+  config {
+    baseName support_apis_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities DeviceType, Employee, SosRequest, SosType
+}
+
+application {
+  config {
+    baseName swap_api_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities BpSwapRecord
+}
+
+application {
+  config {
+    baseName user_apis_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities Group, Org, User
+}
+
+application {
+  config {
+    baseName vehicle_api_service
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities Org, Vehicle, VehicleState
+}
+
+application {
+  config {
+    baseName vehicle_state_apis
+    applicationType microservice
+    packageName com.sonpj
+    authenticationType jwt
+    prodDatabaseType mysql
+  }
+  entities VehicleState
+}
+
+entity Battery {}
+
+entity BatteryState  {}
+
+entity BpSwapRecord {}
+
+entity Bss {}
+
+entity Cabinet {}
+
+entity DeviceType {}
+
+entity Employee {}
+
+entity Group {}
+
+entity Org {}
+
+entity RefreshToken {}
+
+entity RentalHistory {}
+
+entity SosRequest {}
+
+entity SosType {}
+
+entity User {}
+
+entity UserAuth {}
+
+entity Vehicle {}
+
+entity VehicleState {}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+  RentalHistory to Battery
+}
