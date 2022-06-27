@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="BatteryStateHeading">
+    <span jhiTranslate="gatewayApp.batteryState.home.title">Battery States</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gatewayApp.batteryState.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-battery-state"
+        [routerLink]="['/battery-state/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gatewayApp.batteryState.home.createLabel"> Create a new Battery State </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="batteryStates?.length === 0">
+    <span jhiTranslate="gatewayApp.batteryState.home.notFound">No batteryStates found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="batteryStates && batteryStates.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.serialNumber">Serial Number</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.vol">Vol</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.cur">Cur</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.soc">Soc</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.soh">Soh</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.state">State</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.batteryState.status">Status</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let batteryState of batteryStates; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/battery-state', batteryState.id, 'view']">{{ batteryState.id }}</a>
+          </td>
+          <td>{{ batteryState.serialNumber }}</td>
+          <td>{{ batteryState.vol }}</td>
+          <td>{{ batteryState.cur }}</td>
+          <td>{{ batteryState.soc }}</td>
+          <td>{{ batteryState.soh }}</td>
+          <td>{{ batteryState.state }}</td>
+          <td>{{ batteryState.status }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/battery-state', batteryState.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/battery-state', batteryState.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(batteryState)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+{
+  "gatewayApp": {
+    "battery": {
+      "home": {
+        "title": "Batteries",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Battery",
+        "createOrEditLabel": "Create or edit a Battery",
+        "notFound": "No Batteries found"
+      },
+      "created": "A new Battery is created with identifier {{ param }}",
+      "updated": "A Battery is updated with identifier {{ param }}",
+      "deleted": "A Battery is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Battery {{ id }}?"
+      },
+      "detail": {
+        "title": "Battery"
+      },
+      "id": "ID",
+      "serialNo": "Serial No",
+      "hwVersion": "Hw Version",
+      "swVersion": "Sw Version",
+      "manufactureDate": "Manufacture Date",
+      "capacity": "Capacity",
+      "maxCharge": "Max Charge",
+      "maxDiscarge": "Max Discarge",
+      "maxVol": "Max Vol",
+      "minVol": "Min Vol",
+      "used": "Used",
+      "soc": "Soc",
+      "soh": "Soh",
+      "temp": "Temp",
+      "ownerId": "Owner Id",
+      "renterId": "Renter Id",
+      "cycleCount": "Cycle Count",
+      "rentalHistory": "Rental History"
+    }
+  }
+}

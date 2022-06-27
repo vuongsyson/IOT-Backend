@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="userAuth">
+      <h2 data-cy="userAuthDetailsHeading"><span jhiTranslate="gatewayApp.userAuth.detail.title">User Auth</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ userAuth.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.userAuth.email">Email</span></dt>
+        <dd>
+          <span>{{ userAuth.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.userAuth.phone">Phone</span></dt>
+        <dd>
+          <span>{{ userAuth.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.userAuth.username">Username</span></dt>
+        <dd>
+          <span>{{ userAuth.username }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.userAuth.authorities">Authorities</span></dt>
+        <dd>
+          <span>{{ userAuth.authorities }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.userAuth.password">Password</span></dt>
+        <dd>
+          <span>{{ userAuth.password }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/user-auth', userAuth.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

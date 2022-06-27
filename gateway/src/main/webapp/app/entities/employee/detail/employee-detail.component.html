@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employee">
+      <h2 data-cy="employeeDetailsHeading"><span jhiTranslate="gatewayApp.employee.detail.title">Employee</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="gatewayApp.employee.id">Id</span></dt>
+        <dd>
+          <span>{{ employee.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.employee.name">Name</span></dt>
+        <dd>
+          <span>{{ employee.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.employee.phone">Phone</span></dt>
+        <dd>
+          <span>{{ employee.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.employee.code">Code</span></dt>
+        <dd>
+          <span>{{ employee.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.employee.isAssignment">Is Assignment</span></dt>
+        <dd>
+          <span>{{ employee.isAssignment }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee', employee.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

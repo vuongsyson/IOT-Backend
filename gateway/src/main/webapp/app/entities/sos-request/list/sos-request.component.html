@@ -1,0 +1,94 @@
+<div>
+  <h2 id="page-heading" data-cy="SosRequestHeading">
+    <span jhiTranslate="gatewayApp.sosRequest.home.title">Sos Requests</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gatewayApp.sosRequest.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sos-request"
+        [routerLink]="['/sos-request/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gatewayApp.sosRequest.home.createLabel"> Create a new Sos Request </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sosRequests?.length === 0">
+    <span jhiTranslate="gatewayApp.sosRequest.home.notFound">No sosRequests found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sosRequests && sosRequests.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.userId">User Id</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.phone">Phone</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.deviceSerialNumber">Device Serial Number</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.state">State</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.rating">Rating</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.done">Done</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.sosRequest.doneTime">Done Time</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sosRequest of sosRequests; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sos-request', sosRequest.id, 'view']">{{ sosRequest.id }}</a>
+          </td>
+          <td>{{ sosRequest.userId }}</td>
+          <td>{{ sosRequest.phone }}</td>
+          <td>{{ sosRequest.deviceSerialNumber }}</td>
+          <td>{{ sosRequest.description }}</td>
+          <td>{{ sosRequest.image }}</td>
+          <td jhiTranslate="{{ 'gatewayApp.SosState.' + sosRequest.state }}">{{ sosRequest.state }}</td>
+          <td>{{ sosRequest.rating }}</td>
+          <td>{{ sosRequest.done }}</td>
+          <td>{{ sosRequest.doneTime | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/sos-request', sosRequest.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/sos-request', sosRequest.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(sosRequest)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

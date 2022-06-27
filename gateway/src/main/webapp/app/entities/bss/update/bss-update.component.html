@@ -1,0 +1,127 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-bss-heading" data-cy="BssCreateUpdateHeading" jhiTranslate="gatewayApp.bss.home.createOrEditLabel">
+        Create or edit a Bss
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.address" for="field_address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.serialNumber" for="field_serialNumber">Serial Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="serialNumber"
+            id="field_serialNumber"
+            data-cy="serialNumber"
+            formControlName="serialNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.hwVersion" for="field_hwVersion">Hw Version</label>
+          <input type="number" class="form-control" name="hwVersion" id="field_hwVersion" data-cy="hwVersion" formControlName="hwVersion" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.swVersion" for="field_swVersion">Sw Version</label>
+          <input type="number" class="form-control" name="swVersion" id="field_swVersion" data-cy="swVersion" formControlName="swVersion" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.manufactureDate" for="field_manufactureDate">Manufacture Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="manufactureDate"
+            id="field_manufactureDate"
+            data-cy="manufactureDate"
+            formControlName="manufactureDate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.lon" for="field_lon">Lon</label>
+          <input type="number" class="form-control" name="lon" id="field_lon" data-cy="lon" formControlName="lon" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.lat" for="field_lat">Lat</label>
+          <input type="number" class="form-control" name="lat" id="field_lat" data-cy="lat" formControlName="lat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.typeCode" for="field_typeCode">Type Code</label>
+          <input type="number" class="form-control" name="typeCode" id="field_typeCode" data-cy="typeCode" formControlName="typeCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.cabNum" for="field_cabNum">Cab Num</label>
+          <input type="number" class="form-control" name="cabNum" id="field_cabNum" data-cy="cabNum" formControlName="cabNum" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.cabEmptyNum" for="field_cabEmptyNum">Cab Empty Num</label>
+          <input
+            type="number"
+            class="form-control"
+            name="cabEmptyNum"
+            id="field_cabEmptyNum"
+            data-cy="cabEmptyNum"
+            formControlName="cabEmptyNum"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.bpReadyNum" for="field_bpReadyNum">Bp Ready Num</label>
+          <input
+            type="number"
+            class="form-control"
+            name="bpReadyNum"
+            id="field_bpReadyNum"
+            data-cy="bpReadyNum"
+            formControlName="bpReadyNum"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bss.swapBpNo" for="field_swapBpNo">Swap Bp No</label>
+          <input type="number" class="form-control" name="swapBpNo" id="field_swapBpNo" data-cy="swapBpNo" formControlName="swapBpNo" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

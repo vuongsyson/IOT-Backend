@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "rentalHistory": {
+      "home": {
+        "title": "Rental Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rental History",
+        "createOrEditLabel": "Create or edit a Rental History",
+        "notFound": "No Rental Histories found"
+      },
+      "created": "A new Rental History is created with identifier {{ param }}",
+      "updated": "A Rental History is updated with identifier {{ param }}",
+      "deleted": "A Rental History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rental History {{ id }}?"
+      },
+      "detail": {
+        "title": "Rental History"
+      },
+      "id": "ID",
+      "userId": "User Id",
+      "batteryId": "Battery Id",
+      "timeStart": "Time Start",
+      "timeEnd": "Time End",
+      "battery": "Battery"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "applications": ["gateway", "bssApisService"],
+  "changelogDate": "20220627194000",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cabinet",
+  "fields": [
+    {
+      "fieldName": "bssId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "bpId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "bpReady",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "swapNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "stateCode",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Cabinet",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

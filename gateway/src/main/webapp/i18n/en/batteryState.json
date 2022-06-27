@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "batteryState": {
+      "home": {
+        "title": "Battery States",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Battery State",
+        "createOrEditLabel": "Create or edit a Battery State",
+        "notFound": "No Battery States found"
+      },
+      "created": "A new Battery State is created with identifier {{ param }}",
+      "updated": "A Battery State is updated with identifier {{ param }}",
+      "deleted": "A Battery State is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Battery State {{ id }}?"
+      },
+      "detail": {
+        "title": "Battery State"
+      },
+      "id": "ID",
+      "serialNumber": "Serial Number",
+      "vol": "Vol",
+      "cur": "Cur",
+      "soc": "Soc",
+      "soh": "Soh",
+      "state": "State",
+      "status": "Status"
+    }
+  }
+}

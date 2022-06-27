@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cabinet">
+      <h2 data-cy="cabinetDetailsHeading"><span jhiTranslate="gatewayApp.cabinet.detail.title">Cabinet</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cabinet.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.cabinet.bssId">Bss Id</span></dt>
+        <dd>
+          <span>{{ cabinet.bssId }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.cabinet.bpId">Bp Id</span></dt>
+        <dd>
+          <span>{{ cabinet.bpId }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.cabinet.bpReady">Bp Ready</span></dt>
+        <dd>
+          <span>{{ cabinet.bpReady }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.cabinet.swapNo">Swap No</span></dt>
+        <dd>
+          <span>{{ cabinet.swapNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.cabinet.stateCode">State Code</span></dt>
+        <dd>
+          <span>{{ cabinet.stateCode }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cabinet', cabinet.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

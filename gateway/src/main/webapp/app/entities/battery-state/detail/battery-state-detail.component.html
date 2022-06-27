@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="batteryState">
+      <h2 data-cy="batteryStateDetailsHeading"><span jhiTranslate="gatewayApp.batteryState.detail.title">Battery State</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ batteryState.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.serialNumber">Serial Number</span></dt>
+        <dd>
+          <span>{{ batteryState.serialNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.vol">Vol</span></dt>
+        <dd>
+          <span>{{ batteryState.vol }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.cur">Cur</span></dt>
+        <dd>
+          <span>{{ batteryState.cur }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.soc">Soc</span></dt>
+        <dd>
+          <span>{{ batteryState.soc }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.soh">Soh</span></dt>
+        <dd>
+          <span>{{ batteryState.soh }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.state">State</span></dt>
+        <dd>
+          <span>{{ batteryState.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.batteryState.status">Status</span></dt>
+        <dd>
+          <span>{{ batteryState.status }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/battery-state', batteryState.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

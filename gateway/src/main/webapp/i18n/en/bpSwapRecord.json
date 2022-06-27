@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "bpSwapRecord": {
+      "home": {
+        "title": "Bp Swap Records",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bp Swap Record",
+        "createOrEditLabel": "Create or edit a Bp Swap Record",
+        "notFound": "No Bp Swap Records found"
+      },
+      "created": "A new Bp Swap Record is created with identifier {{ param }}",
+      "updated": "A Bp Swap Record is updated with identifier {{ param }}",
+      "deleted": "A Bp Swap Record is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bp Swap Record {{ id }}?"
+      },
+      "detail": {
+        "title": "Bp Swap Record"
+      },
+      "id": "ID",
+      "oldBat": "Old Bat",
+      "newBat": "New Bat",
+      "oldCab": "Old Cab",
+      "newCab": "New Cab",
+      "bss": "Bss",
+      "user": "User",
+      "state": "State",
+      "error": "Error"
+    }
+  }
+}

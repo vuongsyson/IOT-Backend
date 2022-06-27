@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bpSwapRecord">
+      <h2 data-cy="bpSwapRecordDetailsHeading"><span jhiTranslate="gatewayApp.bpSwapRecord.detail.title">Bp Swap Record</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.oldBat">Old Bat</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.oldBat }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.newBat">New Bat</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.newBat }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.oldCab">Old Cab</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.oldCab }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.newCab">New Cab</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.newCab }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.bss">Bss</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.bss }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.user">User</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.user }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.state">State</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bpSwapRecord.error">Error</span></dt>
+        <dd>
+          <span>{{ bpSwapRecord.error }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bp-swap-record', bpSwapRecord.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

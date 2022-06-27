@@ -1,0 +1,49 @@
+{
+  "applications": ["gateway", "swapApiService"],
+  "changelogDate": "20220627193800",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bp_swap_record",
+  "fields": [
+    {
+      "fieldName": "oldBat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "newBat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oldCab",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "newCab",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bss",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "user",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "error",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "BpSwapRecord",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

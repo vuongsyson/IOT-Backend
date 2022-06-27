@@ -1,0 +1,36 @@
+{
+  "gatewayApp": {
+    "bss": {
+      "home": {
+        "title": "Bsses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bss",
+        "createOrEditLabel": "Create or edit a Bss",
+        "notFound": "No Bsses found"
+      },
+      "created": "A new Bss is created with identifier {{ param }}",
+      "updated": "A Bss is updated with identifier {{ param }}",
+      "deleted": "A Bss is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bss {{ id }}?"
+      },
+      "detail": {
+        "title": "Bss"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "serialNumber": "Serial Number",
+      "hwVersion": "Hw Version",
+      "swVersion": "Sw Version",
+      "manufactureDate": "Manufacture Date",
+      "lon": "Lon",
+      "lat": "Lat",
+      "typeCode": "Type Code",
+      "cabNum": "Cab Num",
+      "cabEmptyNum": "Cab Empty Num",
+      "bpReadyNum": "Bp Ready Num",
+      "swapBpNo": "Swap Bp No"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "vehicleState": {
+      "home": {
+        "title": "Vehicle States",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vehicle State",
+        "createOrEditLabel": "Create or edit a Vehicle State",
+        "notFound": "No Vehicle States found"
+      },
+      "created": "A new Vehicle State is created with identifier {{ param }}",
+      "updated": "A Vehicle State is updated with identifier {{ param }}",
+      "deleted": "A Vehicle State is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vehicle State {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle State"
+      },
+      "id": "ID",
+      "speed": "Speed",
+      "lat": "Lat",
+      "lon": "Lon",
+      "error": "Error",
+      "serialNumber": "Serial Number",
+      "status": "Status",
+      "odo": "Odo",
+      "power": "Power",
+      "throttle": "Throttle",
+      "time": "Time"
+    }
+  }
+}
