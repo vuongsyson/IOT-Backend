@@ -109,39 +109,183 @@ application {
   entities VehicleState
 }
 
-entity Battery {}
+entity Battery {
+  serialNo String required unique
+  hw_version Integer required
+  sw_version Integer required
+  manufacture_date String required
+  capacity Integer required
+  max_charge Integer required
+  max_discarge Integer required
+  max_vol Integer required
+  min_vol Integer required
+  used Boolean required
+  soc Integer required
+  soh Integer required
+  temp Integer required
+  owner_id Long required
+  renter_id Long required
+  cycle_count Long required
+}
 
-entity BatteryState  {}
+entity BatteryState  {
+  serialNumber String required
+  vol Integer required
+  cur Integer required
+  soc Integer required
+  soh Integer required
+  state Integer required
+  status Integer required
+}
 
-entity BpSwapRecord {}
+entity BpSwapRecord {
+  id Long
+  old_bat String
+  new_bat String
+  old_cab String
+  new_cab String
+  bss String
+  user Long
+  state Integer
+  error Integer
+  createdAt Date
+}
 
-entity Bss {}
+entity Bss {
+  name String
+  address String
+  serial_number String
+  hw_version Integer
+  sw_version Integer
+  manufacture_date String
+  lon Double
+  lat Double
+  type_code Integer
+  cab_num Integer
+  cab_empty_num Integer
+  bp_ready_num Integer
+  swap_bp_no Long
+}
 
-entity Cabinet {}
+entity Cabinet {
+  bssID Long required
+  bp_id Long
+  bp_ready Boolean
+  swap_no Long
+  state_code Integer
+}
 
-entity DeviceType {}
+entity DeviceType {
+  name String required
+}
 
-entity Employee {}
+entity Employee {
+  id Long
+  name String
+  phone String
+  code String
+  isAssignment Boolean
+}
 
-entity Group {}
+entity Group {
+  name String required
+}
 
-entity Org {}
+entity Org {
+  org_id Long
+}
 
-entity RefreshToken {}
+entity RefreshToken {
+  username String
+}
 
-entity RentalHistory {}
+entity RentalHistory {
+  userId Long
+  batteryId Long
+  time_start Date
+  time_end Date
+}
 
-entity SosRequest {}
+enum SosState {
+  SEND_REQUEST
+  REQUEST_RECEIVED
+  ASSIGNMENT
+  HANDLE_START
+  HANDLE_DONE
+  USERS_RATED
+}
 
-entity SosType {}
+entity SosRequest {
+  id Long
+  userId Long required
+  phone String required
+  deviceSerialNumber String required
+  description String
+  image String
+  state SosState
+  rating Integer min(0) max(5)
+  done Boolean
+  doneTime Date
+}
 
-entity User {}
+entity SosType {
+  name String required
+}
 
-entity UserAuth {}
+entity User {
+  full_name String required
+  date_of_birth String required
+  gender Integer required
+  address String required
+  identity_number String required
+  email String required
+  phone String required
+  username String required
+  authorities String required
+  password String required
+  avatar String
+  orgRole Integer required
+}
 
-entity Vehicle {}
+entity UserAuth {
+  email String
+  phone String
+  username String
+  authorities String
+  password String
+}
 
-entity VehicleState {}
+entity Vehicle {
+  clearance Integer
+  max_power Integer
+  max_speed Integer
+  max_load Integer
+  weight_total Integer
+  max_distance Integer
+  wheel_base Integer
+  hw_version Integer
+  sw_version Integer
+  serial_number String
+  manufacture_date String
+  lot_number Integer
+  color String
+  vehicle_type String
+  used Boolean
+  userId Long
+}
+
+entity VehicleState {
+  speed Integer
+  lat Double
+  lon Double
+  error Integer
+  serial_number String
+  status String
+  odo Double
+  power Double
+  throttle Double
+  time Instant
+}
 
 /**
  * One to many relationship.
