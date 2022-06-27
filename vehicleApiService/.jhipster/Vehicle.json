@@ -1,0 +1,83 @@
+{
+  "applications": ["gateway", "vehicleApiService"],
+  "changelogDate": "20220627193700",
+  "clientRootFolder": "vehicleApiService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vehicle",
+  "fields": [
+    {
+      "fieldName": "clearance",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxPower",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxSpeed",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxLoad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weightTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxDistance",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "wheelBase",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "hwVersion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "swVersion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "serialNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "manufactureDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lotNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vehicleType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "used",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "vehicleApiService",
+  "name": "Vehicle",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,24 @@
+{
+  "applications": ["gateway", "supportApisService"],
+  "changelogDate": "20220627193901",
+  "clientRootFolder": "supportApisService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sos_type",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "supportApisService",
+  "name": "SosType",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

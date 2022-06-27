@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Battery.
+    -->
+    <changeSet id="20220627193600-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="rental_history_id"
+                                 baseTableName="battery"
+                                 constraintName="fk_battery__rental_history_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rental_history"/>
+    </changeSet>
+</databaseChangeLog>

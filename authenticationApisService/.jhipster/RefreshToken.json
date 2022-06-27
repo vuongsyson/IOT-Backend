@@ -1,0 +1,23 @@
+{
+  "applications": ["gateway", "authenticationApisService"],
+  "changelogDate": "20220627193600",
+  "clientRootFolder": "authenticationApisService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "refresh_token",
+  "fields": [
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "authenticationApisService",
+  "name": "RefreshToken",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

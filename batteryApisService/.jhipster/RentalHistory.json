@@ -1,0 +1,42 @@
+{
+  "applications": ["gateway", "batteryApisService"],
+  "changelogDate": "20220627193700",
+  "clientRootFolder": "batteryApisService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "rental_history",
+  "fields": [
+    {
+      "fieldName": "userId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "batteryId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "timeStart",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "timeEnd",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "batteryApisService",
+  "name": "RentalHistory",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "battery",
+      "otherEntityRelationshipName": "rentalHistory",
+      "relationshipName": "battery",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

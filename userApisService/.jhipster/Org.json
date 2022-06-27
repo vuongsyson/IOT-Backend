@@ -1,0 +1,23 @@
+{
+  "applications": ["gateway", "userApisService", "vehicleApiService"],
+  "changelogDate": "20220627193701",
+  "clientRootFolder": "userApisService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "org",
+  "fields": [
+    {
+      "fieldName": "orgId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "userApisService",
+  "name": "Org",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

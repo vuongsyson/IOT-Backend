@@ -1,0 +1,71 @@
+{
+  "applications": ["gateway", "bssApisService"],
+  "changelogDate": "20220627193600",
+  "clientRootFolder": "bssApisService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bss",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serialNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hwVersion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "swVersion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "manufactureDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lon",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "typeCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cabNum",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cabEmptyNum",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "bpReadyNum",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "swapBpNo",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "bssApisService",
+  "name": "Bss",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
