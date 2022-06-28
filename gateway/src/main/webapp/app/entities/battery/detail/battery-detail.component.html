@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="battery">
+      <h2 data-cy="batteryDetailsHeading"><span jhiTranslate="gatewayApp.battery.detail.title">Battery</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ battery.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.serialNo">Serial No</span></dt>
+        <dd>
+          <span>{{ battery.serialNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.hwVersion">Hw Version</span></dt>
+        <dd>
+          <span>{{ battery.hwVersion }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.swVersion">Sw Version</span></dt>
+        <dd>
+          <span>{{ battery.swVersion }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.manufactureDate">Manufacture Date</span></dt>
+        <dd>
+          <span>{{ battery.manufactureDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.capacity">Capacity</span></dt>
+        <dd>
+          <span>{{ battery.capacity }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.maxCharge">Max Charge</span></dt>
+        <dd>
+          <span>{{ battery.maxCharge }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.maxDiscarge">Max Discarge</span></dt>
+        <dd>
+          <span>{{ battery.maxDiscarge }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.maxVol">Max Vol</span></dt>
+        <dd>
+          <span>{{ battery.maxVol }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.minVol">Min Vol</span></dt>
+        <dd>
+          <span>{{ battery.minVol }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.used">Used</span></dt>
+        <dd>
+          <span>{{ battery.used }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.soc">Soc</span></dt>
+        <dd>
+          <span>{{ battery.soc }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.soh">Soh</span></dt>
+        <dd>
+          <span>{{ battery.soh }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.temp">Temp</span></dt>
+        <dd>
+          <span>{{ battery.temp }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.ownerId">Owner Id</span></dt>
+        <dd>
+          <span>{{ battery.ownerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.renterId">Renter Id</span></dt>
+        <dd>
+          <span>{{ battery.renterId }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.cycleCount">Cycle Count</span></dt>
+        <dd>
+          <span>{{ battery.cycleCount }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.battery.rentalHistory">Rental History</span></dt>
+        <dd>
+          <div *ngIf="battery.rentalHistory">
+            <a [routerLink]="['/rental-history', battery.rentalHistory?.id, 'view']">{{ battery.rentalHistory?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/battery', battery.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

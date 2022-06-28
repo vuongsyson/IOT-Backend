@@ -1,0 +1,354 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-battery-heading" data-cy="BatteryCreateUpdateHeading" jhiTranslate="gatewayApp.battery.home.createOrEditLabel">
+        Create or edit a Battery
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.serialNo" for="field_serialNo">Serial No</label>
+          <input type="text" class="form-control" name="serialNo" id="field_serialNo" data-cy="serialNo" formControlName="serialNo" />
+          <div *ngIf="editForm.get('serialNo')!.invalid && (editForm.get('serialNo')!.dirty || editForm.get('serialNo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('serialNo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.hwVersion" for="field_hwVersion">Hw Version</label>
+          <input type="number" class="form-control" name="hwVersion" id="field_hwVersion" data-cy="hwVersion" formControlName="hwVersion" />
+          <div *ngIf="editForm.get('hwVersion')!.invalid && (editForm.get('hwVersion')!.dirty || editForm.get('hwVersion')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hwVersion')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('hwVersion')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.swVersion" for="field_swVersion">Sw Version</label>
+          <input type="number" class="form-control" name="swVersion" id="field_swVersion" data-cy="swVersion" formControlName="swVersion" />
+          <div *ngIf="editForm.get('swVersion')!.invalid && (editForm.get('swVersion')!.dirty || editForm.get('swVersion')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('swVersion')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('swVersion')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.manufactureDate" for="field_manufactureDate">Manufacture Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="manufactureDate"
+            id="field_manufactureDate"
+            data-cy="manufactureDate"
+            formControlName="manufactureDate"
+          />
+          <div
+            *ngIf="
+              editForm.get('manufactureDate')!.invalid &&
+              (editForm.get('manufactureDate')!.dirty || editForm.get('manufactureDate')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('manufactureDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.capacity" for="field_capacity">Capacity</label>
+          <input type="number" class="form-control" name="capacity" id="field_capacity" data-cy="capacity" formControlName="capacity" />
+          <div *ngIf="editForm.get('capacity')!.invalid && (editForm.get('capacity')!.dirty || editForm.get('capacity')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('capacity')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('capacity')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.maxCharge" for="field_maxCharge">Max Charge</label>
+          <input type="number" class="form-control" name="maxCharge" id="field_maxCharge" data-cy="maxCharge" formControlName="maxCharge" />
+          <div *ngIf="editForm.get('maxCharge')!.invalid && (editForm.get('maxCharge')!.dirty || editForm.get('maxCharge')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maxCharge')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('maxCharge')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.maxDiscarge" for="field_maxDiscarge">Max Discarge</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxDiscarge"
+            id="field_maxDiscarge"
+            data-cy="maxDiscarge"
+            formControlName="maxDiscarge"
+          />
+          <div *ngIf="editForm.get('maxDiscarge')!.invalid && (editForm.get('maxDiscarge')!.dirty || editForm.get('maxDiscarge')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maxDiscarge')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('maxDiscarge')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.maxVol" for="field_maxVol">Max Vol</label>
+          <input type="number" class="form-control" name="maxVol" id="field_maxVol" data-cy="maxVol" formControlName="maxVol" />
+          <div *ngIf="editForm.get('maxVol')!.invalid && (editForm.get('maxVol')!.dirty || editForm.get('maxVol')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('maxVol')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('maxVol')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.minVol" for="field_minVol">Min Vol</label>
+          <input type="number" class="form-control" name="minVol" id="field_minVol" data-cy="minVol" formControlName="minVol" />
+          <div *ngIf="editForm.get('minVol')!.invalid && (editForm.get('minVol')!.dirty || editForm.get('minVol')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('minVol')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('minVol')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.used" for="field_used">Used</label>
+          <input type="checkbox" class="form-check" name="used" id="field_used" data-cy="used" formControlName="used" />
+          <div *ngIf="editForm.get('used')!.invalid && (editForm.get('used')!.dirty || editForm.get('used')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('used')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.soc" for="field_soc">Soc</label>
+          <input type="number" class="form-control" name="soc" id="field_soc" data-cy="soc" formControlName="soc" />
+          <div *ngIf="editForm.get('soc')!.invalid && (editForm.get('soc')!.dirty || editForm.get('soc')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('soc')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('soc')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.soh" for="field_soh">Soh</label>
+          <input type="number" class="form-control" name="soh" id="field_soh" data-cy="soh" formControlName="soh" />
+          <div *ngIf="editForm.get('soh')!.invalid && (editForm.get('soh')!.dirty || editForm.get('soh')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('soh')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('soh')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.temp" for="field_temp">Temp</label>
+          <input type="number" class="form-control" name="temp" id="field_temp" data-cy="temp" formControlName="temp" />
+          <div *ngIf="editForm.get('temp')!.invalid && (editForm.get('temp')!.dirty || editForm.get('temp')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('temp')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('temp')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.ownerId" for="field_ownerId">Owner Id</label>
+          <input type="number" class="form-control" name="ownerId" id="field_ownerId" data-cy="ownerId" formControlName="ownerId" />
+          <div *ngIf="editForm.get('ownerId')!.invalid && (editForm.get('ownerId')!.dirty || editForm.get('ownerId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('ownerId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('ownerId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.renterId" for="field_renterId">Renter Id</label>
+          <input type="number" class="form-control" name="renterId" id="field_renterId" data-cy="renterId" formControlName="renterId" />
+          <div *ngIf="editForm.get('renterId')!.invalid && (editForm.get('renterId')!.dirty || editForm.get('renterId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('renterId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('renterId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.cycleCount" for="field_cycleCount">Cycle Count</label>
+          <input
+            type="number"
+            class="form-control"
+            name="cycleCount"
+            id="field_cycleCount"
+            data-cy="cycleCount"
+            formControlName="cycleCount"
+          />
+          <div *ngIf="editForm.get('cycleCount')!.invalid && (editForm.get('cycleCount')!.dirty || editForm.get('cycleCount')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cycleCount')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('cycleCount')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.battery.rentalHistory" for="field_rentalHistory">Rental History</label>
+          <select
+            class="form-control"
+            id="field_rentalHistory"
+            data-cy="rentalHistory"
+            name="rentalHistory"
+            formControlName="rentalHistory"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                rentalHistoryOption.id === editForm.get('rentalHistory')!.value?.id
+                  ? editForm.get('rentalHistory')!.value
+                  : rentalHistoryOption
+              "
+              *ngFor="let rentalHistoryOption of rentalHistoriesSharedCollection; trackBy: trackRentalHistoryById"
+            >
+              {{ rentalHistoryOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

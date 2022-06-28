@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "sosRequest": {
+      "home": {
+        "title": "Sos Requests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sos Request",
+        "createOrEditLabel": "Create or edit a Sos Request",
+        "notFound": "No Sos Requests found"
+      },
+      "created": "A new Sos Request is created with identifier {{ param }}",
+      "updated": "A Sos Request is updated with identifier {{ param }}",
+      "deleted": "A Sos Request is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sos Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Sos Request"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "phone": "Phone",
+      "deviceSerialNumber": "Device Serial Number",
+      "description": "Description",
+      "image": "Image",
+      "state": "State",
+      "rating": "Rating",
+      "done": "Done",
+      "doneTime": "Done Time"
+    }
+  }
+}

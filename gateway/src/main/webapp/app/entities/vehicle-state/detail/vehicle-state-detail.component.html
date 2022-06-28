@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vehicleState">
+      <h2 data-cy="vehicleStateDetailsHeading"><span jhiTranslate="gatewayApp.vehicleState.detail.title">Vehicle State</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vehicleState.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.speed">Speed</span></dt>
+        <dd>
+          <span>{{ vehicleState.speed }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.lat">Lat</span></dt>
+        <dd>
+          <span>{{ vehicleState.lat }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.lon">Lon</span></dt>
+        <dd>
+          <span>{{ vehicleState.lon }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.error">Error</span></dt>
+        <dd>
+          <span>{{ vehicleState.error }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.serialNumber">Serial Number</span></dt>
+        <dd>
+          <span>{{ vehicleState.serialNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.status">Status</span></dt>
+        <dd>
+          <span>{{ vehicleState.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.odo">Odo</span></dt>
+        <dd>
+          <span>{{ vehicleState.odo }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.power">Power</span></dt>
+        <dd>
+          <span>{{ vehicleState.power }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.throttle">Throttle</span></dt>
+        <dd>
+          <span>{{ vehicleState.throttle }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicleState.time">Time</span></dt>
+        <dd>
+          <span>{{ vehicleState.time | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vehicle-state', vehicleState.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

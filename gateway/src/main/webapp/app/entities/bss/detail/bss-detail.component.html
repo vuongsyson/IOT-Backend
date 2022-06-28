@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bss">
+      <h2 data-cy="bssDetailsHeading"><span jhiTranslate="gatewayApp.bss.detail.title">Bss</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ bss.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.name">Name</span></dt>
+        <dd>
+          <span>{{ bss.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.address">Address</span></dt>
+        <dd>
+          <span>{{ bss.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.serialNumber">Serial Number</span></dt>
+        <dd>
+          <span>{{ bss.serialNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.hwVersion">Hw Version</span></dt>
+        <dd>
+          <span>{{ bss.hwVersion }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.swVersion">Sw Version</span></dt>
+        <dd>
+          <span>{{ bss.swVersion }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.manufactureDate">Manufacture Date</span></dt>
+        <dd>
+          <span>{{ bss.manufactureDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.lon">Lon</span></dt>
+        <dd>
+          <span>{{ bss.lon }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.lat">Lat</span></dt>
+        <dd>
+          <span>{{ bss.lat }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.typeCode">Type Code</span></dt>
+        <dd>
+          <span>{{ bss.typeCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.cabNum">Cab Num</span></dt>
+        <dd>
+          <span>{{ bss.cabNum }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.cabEmptyNum">Cab Empty Num</span></dt>
+        <dd>
+          <span>{{ bss.cabEmptyNum }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.bpReadyNum">Bp Ready Num</span></dt>
+        <dd>
+          <span>{{ bss.bpReadyNum }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.bss.swapBpNo">Swap Bp No</span></dt>
+        <dd>
+          <span>{{ bss.swapBpNo }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bss', bss.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

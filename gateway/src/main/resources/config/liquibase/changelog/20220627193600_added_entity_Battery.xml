@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Battery.
+    -->
+    <changeSet id="20220627193600-1" author="jhipster">
+        <createTable tableName="battery">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="serial_no" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_battery__serial_no" />
+            </column>
+            <column name="hw_version" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="sw_version" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="manufacture_date" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="capacity" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="max_charge" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="max_discarge" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="max_vol" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="min_vol" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="used" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="soc" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="soh" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="temp" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="owner_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="renter_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="cycle_count" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="rental_history_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220627193600-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/battery.csv"
+                  separator=";"
+                  tableName="battery"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="serial_no" type="string"/>
+            <column name="hw_version" type="numeric"/>
+            <column name="sw_version" type="numeric"/>
+            <column name="manufacture_date" type="string"/>
+            <column name="capacity" type="numeric"/>
+            <column name="max_charge" type="numeric"/>
+            <column name="max_discarge" type="numeric"/>
+            <column name="max_vol" type="numeric"/>
+            <column name="min_vol" type="numeric"/>
+            <column name="used" type="boolean"/>
+            <column name="soc" type="numeric"/>
+            <column name="soh" type="numeric"/>
+            <column name="temp" type="numeric"/>
+            <column name="owner_id" type="numeric"/>
+            <column name="renter_id" type="numeric"/>
+            <column name="cycle_count" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

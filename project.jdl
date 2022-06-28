@@ -12,7 +12,7 @@ application {
 
 application {
   config {
-    baseName authentication_apis_service
+    baseName authenticationApisService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -23,7 +23,7 @@ application {
 
 application {
   config {
-    baseName battery_apis_service
+    baseName batteryApisService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -34,7 +34,7 @@ application {
 
 application {
   config {
-    baseName bss_apis_service
+    baseName bssApisService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -45,7 +45,7 @@ application {
 
 application {
   config {
-    baseName device_state_api_service
+    baseName deviceStateApiService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -56,7 +56,7 @@ application {
 
 application {
   config {
-    baseName support_apis_service
+    baseName supportApisService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -67,7 +67,7 @@ application {
 
 application {
   config {
-    baseName swap_api_service
+    baseName swapApiService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -78,7 +78,7 @@ application {
 
 application {
   config {
-    baseName user_apis_service
+    baseName userApisService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -89,7 +89,7 @@ application {
 
 application {
   config {
-    baseName vehicle_api_service
+    baseName vehicleApiService
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -100,7 +100,7 @@ application {
 
 application {
   config {
-    baseName vehicle_state_apis
+    baseName vehicleStateApis
     applicationType microservice
     packageName com.sonpj
     authenticationType jwt
@@ -109,39 +109,181 @@ application {
   entities VehicleState
 }
 
-entity Battery {}
+entity Battery {
+  serialNo String required unique
+  hwVersion Integer required
+  swVersion Integer required
+  manufactureDate String required
+  capacity Integer required
+  maxCharge Integer required
+  maxDiscarge Integer required
+  maxVol Integer required
+  minVol Integer required
+  used Boolean required
+  soc Integer required
+  soh Integer required
+  temp Integer required
+  ownerId Long required
+  renterId Long required
+  cycleCount Long required
+}
 
-entity BatteryState  {}
+entity BatteryState  {
+  serialNumber String required
+  vol Integer required
+  cur Integer required
+  soc Integer required
+  soh Integer required
+  state Integer required
+  status Integer required
+}
 
-entity BpSwapRecord {}
+entity BpSwapRecord {
+  oldBat String
+  newBat String
+  oldCab String
+  newCab String
+  bss String
+  user Long
+  state Integer
+  error Integer
+}
 
-entity Bss {}
+entity Bss {
+  name String
+  address String
+  serialNumber String
+  hwVersion Integer
+  swVersion Integer
+  manufactureDate String
+  lon Double
+  lat Double
+  typeCode Integer
+  cabNum Integer
+  cabEmptyNum Integer
+  bpReadyNum Integer
+  swapBpNo Long
+}
 
-entity Cabinet {}
+entity Cabinet {
+  bssId Long required
+  bpId Long
+  bpReady Boolean
+  swapNo Long
+  stateCode Integer
+}
 
-entity DeviceType {}
+entity DeviceType {
+  name String required
+}
 
-entity Employee {}
+entity Employee {
+  id Long
+  name String
+  phone String
+  code String
+  isAssignment Boolean
+}
 
-entity Group {}
+entity Group {
+  name String required
+}
 
-entity Org {}
+entity Org {
+  orgId Long
+}
 
-entity RefreshToken {}
+entity RefreshToken {
+  username String
+}
 
-entity RentalHistory {}
+entity RentalHistory {
+  userId Long
+  batteryId Long
+  timeStart Instant
+  timeEnd Instant
+}
 
-entity SosRequest {}
+enum SosState {
+  SEND_REQUEST
+  REQUEST_RECEIVED
+  ASSIGNMENT
+  HANDLE_START
+  HANDLE_DONE
+  USERS_RATED
+}
 
-entity SosType {}
+entity SosRequest {
+  id Long
+  userId Long required
+  phone String required
+  deviceSerialNumber String required
+  description String
+  image String
+  state SosState
+  rating Integer min(0) max(5)
+  done Boolean
+  doneTime Instant
+}
 
-entity User {}
+entity SosType {
+  name String required
+}
 
-entity UserAuth {}
+entity User {
+  fullName String required
+  dateOfBirth String required
+  gender Integer required
+  address String required
+  identityNumber String required
+  email String required
+  phone String required
+  username String required
+  authorities String required
+  password String required
+  avatar String
+  orgRole Integer required
+}
 
-entity Vehicle {}
+entity UserAuth {
+  email String
+  phone String
+  username String
+  authorities String
+  password String
+}
 
-entity VehicleState {}
+entity Vehicle {
+  clearance Integer
+  maxPower Integer
+  maxSpeed Integer
+  maxLoad Integer
+  weightTotal Integer
+  maxDistance Integer
+  wheelBase Integer
+  hwVersion Integer
+  swVersion Integer
+  serialNumber String
+  manufactureDate String
+  lotNumber Integer
+  color String
+  vehicleType String
+  used Boolean
+  userId Long
+}
+
+entity VehicleState {
+  speed Integer
+  lat Double
+  lon Double
+  error Integer
+  serialNumber String
+  status String
+  odo Double
+  power Double
+  throttle Double
+  time Instant
+}
 
 /**
  * One to many relationship.

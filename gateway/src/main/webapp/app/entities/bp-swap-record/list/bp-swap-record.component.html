@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="BpSwapRecordHeading">
+    <span jhiTranslate="gatewayApp.bpSwapRecord.home.title">Bp Swap Records</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gatewayApp.bpSwapRecord.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bp-swap-record"
+        [routerLink]="['/bp-swap-record/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gatewayApp.bpSwapRecord.home.createLabel"> Create a new Bp Swap Record </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bpSwapRecords?.length === 0">
+    <span jhiTranslate="gatewayApp.bpSwapRecord.home.notFound">No bpSwapRecords found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bpSwapRecords && bpSwapRecords.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.oldBat">Old Bat</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.newBat">New Bat</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.oldCab">Old Cab</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.newCab">New Cab</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.bss">Bss</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.user">User</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.state">State</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.bpSwapRecord.error">Error</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bpSwapRecord of bpSwapRecords; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/bp-swap-record', bpSwapRecord.id, 'view']">{{ bpSwapRecord.id }}</a>
+          </td>
+          <td>{{ bpSwapRecord.oldBat }}</td>
+          <td>{{ bpSwapRecord.newBat }}</td>
+          <td>{{ bpSwapRecord.oldCab }}</td>
+          <td>{{ bpSwapRecord.newCab }}</td>
+          <td>{{ bpSwapRecord.bss }}</td>
+          <td>{{ bpSwapRecord.user }}</td>
+          <td>{{ bpSwapRecord.state }}</td>
+          <td>{{ bpSwapRecord.error }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/bp-swap-record', bpSwapRecord.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/bp-swap-record', bpSwapRecord.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bpSwapRecord)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="BatteryHeading">
+    <span jhiTranslate="gatewayApp.battery.home.title">Batteries</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gatewayApp.battery.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-battery"
+        [routerLink]="['/battery/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gatewayApp.battery.home.createLabel"> Create a new Battery </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="batteries?.length === 0">
+    <span jhiTranslate="gatewayApp.battery.home.notFound">No batteries found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="batteries && batteries.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.serialNo">Serial No</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.hwVersion">Hw Version</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.swVersion">Sw Version</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.manufactureDate">Manufacture Date</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.capacity">Capacity</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.maxCharge">Max Charge</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.maxDiscarge">Max Discarge</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.maxVol">Max Vol</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.minVol">Min Vol</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.used">Used</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.soc">Soc</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.soh">Soh</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.temp">Temp</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.ownerId">Owner Id</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.renterId">Renter Id</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.cycleCount">Cycle Count</span></th>
+          <th scope="col"><span jhiTranslate="gatewayApp.battery.rentalHistory">Rental History</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let battery of batteries; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/battery', battery.id, 'view']">{{ battery.id }}</a>
+          </td>
+          <td>{{ battery.serialNo }}</td>
+          <td>{{ battery.hwVersion }}</td>
+          <td>{{ battery.swVersion }}</td>
+          <td>{{ battery.manufactureDate }}</td>
+          <td>{{ battery.capacity }}</td>
+          <td>{{ battery.maxCharge }}</td>
+          <td>{{ battery.maxDiscarge }}</td>
+          <td>{{ battery.maxVol }}</td>
+          <td>{{ battery.minVol }}</td>
+          <td>{{ battery.used }}</td>
+          <td>{{ battery.soc }}</td>
+          <td>{{ battery.soh }}</td>
+          <td>{{ battery.temp }}</td>
+          <td>{{ battery.ownerId }}</td>
+          <td>{{ battery.renterId }}</td>
+          <td>{{ battery.cycleCount }}</td>
+          <td>
+            <div *ngIf="battery.rentalHistory">
+              <a [routerLink]="['/rental-history', battery.rentalHistory?.id, 'view']">{{ battery.rentalHistory?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/battery', battery.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/battery', battery.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(battery)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

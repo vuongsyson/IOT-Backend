@@ -1,0 +1,149 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-vehicle-heading" data-cy="VehicleCreateUpdateHeading" jhiTranslate="gatewayApp.vehicle.home.createOrEditLabel">
+        Create or edit a Vehicle
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.clearance" for="field_clearance">Clearance</label>
+          <input type="number" class="form-control" name="clearance" id="field_clearance" data-cy="clearance" formControlName="clearance" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.maxPower" for="field_maxPower">Max Power</label>
+          <input type="number" class="form-control" name="maxPower" id="field_maxPower" data-cy="maxPower" formControlName="maxPower" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.maxSpeed" for="field_maxSpeed">Max Speed</label>
+          <input type="number" class="form-control" name="maxSpeed" id="field_maxSpeed" data-cy="maxSpeed" formControlName="maxSpeed" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.maxLoad" for="field_maxLoad">Max Load</label>
+          <input type="number" class="form-control" name="maxLoad" id="field_maxLoad" data-cy="maxLoad" formControlName="maxLoad" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.weightTotal" for="field_weightTotal">Weight Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="weightTotal"
+            id="field_weightTotal"
+            data-cy="weightTotal"
+            formControlName="weightTotal"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.maxDistance" for="field_maxDistance">Max Distance</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxDistance"
+            id="field_maxDistance"
+            data-cy="maxDistance"
+            formControlName="maxDistance"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.wheelBase" for="field_wheelBase">Wheel Base</label>
+          <input type="number" class="form-control" name="wheelBase" id="field_wheelBase" data-cy="wheelBase" formControlName="wheelBase" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.hwVersion" for="field_hwVersion">Hw Version</label>
+          <input type="number" class="form-control" name="hwVersion" id="field_hwVersion" data-cy="hwVersion" formControlName="hwVersion" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.swVersion" for="field_swVersion">Sw Version</label>
+          <input type="number" class="form-control" name="swVersion" id="field_swVersion" data-cy="swVersion" formControlName="swVersion" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.serialNumber" for="field_serialNumber">Serial Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="serialNumber"
+            id="field_serialNumber"
+            data-cy="serialNumber"
+            formControlName="serialNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.manufactureDate" for="field_manufactureDate">Manufacture Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="manufactureDate"
+            id="field_manufactureDate"
+            data-cy="manufactureDate"
+            formControlName="manufactureDate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.lotNumber" for="field_lotNumber">Lot Number</label>
+          <input type="number" class="form-control" name="lotNumber" id="field_lotNumber" data-cy="lotNumber" formControlName="lotNumber" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.color" for="field_color">Color</label>
+          <input type="text" class="form-control" name="color" id="field_color" data-cy="color" formControlName="color" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.vehicleType" for="field_vehicleType">Vehicle Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="vehicleType"
+            id="field_vehicleType"
+            data-cy="vehicleType"
+            formControlName="vehicleType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.used" for="field_used">Used</label>
+          <input type="checkbox" class="form-check" name="used" id="field_used" data-cy="used" formControlName="used" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.vehicle.userId" for="field_userId">User Id</label>
+          <input type="number" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

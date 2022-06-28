@@ -1,0 +1,24 @@
+{
+  "gatewayApp": {
+    "sosType": {
+      "home": {
+        "title": "Sos Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sos Type",
+        "createOrEditLabel": "Create or edit a Sos Type",
+        "notFound": "No Sos Types found"
+      },
+      "created": "A new Sos Type is created with identifier {{ param }}",
+      "updated": "A Sos Type is updated with identifier {{ param }}",
+      "deleted": "A Sos Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sos Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Sos Type"
+      },
+      "id": "ID",
+      "name": "Name"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-bp-swap-record-heading"
+        data-cy="BpSwapRecordCreateUpdateHeading"
+        jhiTranslate="gatewayApp.bpSwapRecord.home.createOrEditLabel"
+      >
+        Create or edit a Bp Swap Record
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.oldBat" for="field_oldBat">Old Bat</label>
+          <input type="text" class="form-control" name="oldBat" id="field_oldBat" data-cy="oldBat" formControlName="oldBat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.newBat" for="field_newBat">New Bat</label>
+          <input type="text" class="form-control" name="newBat" id="field_newBat" data-cy="newBat" formControlName="newBat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.oldCab" for="field_oldCab">Old Cab</label>
+          <input type="text" class="form-control" name="oldCab" id="field_oldCab" data-cy="oldCab" formControlName="oldCab" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.newCab" for="field_newCab">New Cab</label>
+          <input type="text" class="form-control" name="newCab" id="field_newCab" data-cy="newCab" formControlName="newCab" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.bss" for="field_bss">Bss</label>
+          <input type="text" class="form-control" name="bss" id="field_bss" data-cy="bss" formControlName="bss" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.user" for="field_user">User</label>
+          <input type="number" class="form-control" name="user" id="field_user" data-cy="user" formControlName="user" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.state" for="field_state">State</label>
+          <input type="number" class="form-control" name="state" id="field_state" data-cy="state" formControlName="state" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gatewayApp.bpSwapRecord.error" for="field_error">Error</label>
+          <input type="number" class="form-control" name="error" id="field_error" data-cy="error" formControlName="error" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vehicle">
+      <h2 data-cy="vehicleDetailsHeading"><span jhiTranslate="gatewayApp.vehicle.detail.title">Vehicle</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vehicle.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.clearance">Clearance</span></dt>
+        <dd>
+          <span>{{ vehicle.clearance }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.maxPower">Max Power</span></dt>
+        <dd>
+          <span>{{ vehicle.maxPower }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.maxSpeed">Max Speed</span></dt>
+        <dd>
+          <span>{{ vehicle.maxSpeed }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.maxLoad">Max Load</span></dt>
+        <dd>
+          <span>{{ vehicle.maxLoad }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.weightTotal">Weight Total</span></dt>
+        <dd>
+          <span>{{ vehicle.weightTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.maxDistance">Max Distance</span></dt>
+        <dd>
+          <span>{{ vehicle.maxDistance }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.wheelBase">Wheel Base</span></dt>
+        <dd>
+          <span>{{ vehicle.wheelBase }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.hwVersion">Hw Version</span></dt>
+        <dd>
+          <span>{{ vehicle.hwVersion }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.swVersion">Sw Version</span></dt>
+        <dd>
+          <span>{{ vehicle.swVersion }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.serialNumber">Serial Number</span></dt>
+        <dd>
+          <span>{{ vehicle.serialNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.manufactureDate">Manufacture Date</span></dt>
+        <dd>
+          <span>{{ vehicle.manufactureDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.lotNumber">Lot Number</span></dt>
+        <dd>
+          <span>{{ vehicle.lotNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.color">Color</span></dt>
+        <dd>
+          <span>{{ vehicle.color }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.vehicleType">Vehicle Type</span></dt>
+        <dd>
+          <span>{{ vehicle.vehicleType }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.used">Used</span></dt>
+        <dd>
+          <span>{{ vehicle.used }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.vehicle.userId">User Id</span></dt>
+        <dd>
+          <span>{{ vehicle.userId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vehicle', vehicle.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

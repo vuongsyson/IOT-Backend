@@ -1,0 +1,59 @@
+{
+  "applications": ["gateway", "vehicleApiService", "vehicleStateApis"],
+  "changelogDate": "20220627193800",
+  "clientRootFolder": "vehicleApiService",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vehicle_state",
+  "fields": [
+    {
+      "fieldName": "speed",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lon",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "error",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "serialNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "odo",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "power",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "throttle",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "vehicleApiService",
+  "name": "VehicleState",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

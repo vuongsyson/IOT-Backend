@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "cabinet": {
+      "home": {
+        "title": "Cabinets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cabinet",
+        "createOrEditLabel": "Create or edit a Cabinet",
+        "notFound": "No Cabinets found"
+      },
+      "created": "A new Cabinet is created with identifier {{ param }}",
+      "updated": "A Cabinet is updated with identifier {{ param }}",
+      "deleted": "A Cabinet is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cabinet {{ id }}?"
+      },
+      "detail": {
+        "title": "Cabinet"
+      },
+      "id": "ID",
+      "bssId": "Bss Id",
+      "bpId": "Bp Id",
+      "bpReady": "Bp Ready",
+      "swapNo": "Swap No",
+      "stateCode": "State Code"
+    }
+  }
+}

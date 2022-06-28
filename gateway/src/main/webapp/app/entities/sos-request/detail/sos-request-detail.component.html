@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sosRequest">
+      <h2 data-cy="sosRequestDetailsHeading"><span jhiTranslate="gatewayApp.sosRequest.detail.title">Sos Request</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="gatewayApp.sosRequest.id">Id</span></dt>
+        <dd>
+          <span>{{ sosRequest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.userId">User Id</span></dt>
+        <dd>
+          <span>{{ sosRequest.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.phone">Phone</span></dt>
+        <dd>
+          <span>{{ sosRequest.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.deviceSerialNumber">Device Serial Number</span></dt>
+        <dd>
+          <span>{{ sosRequest.deviceSerialNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.description">Description</span></dt>
+        <dd>
+          <span>{{ sosRequest.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.image">Image</span></dt>
+        <dd>
+          <span>{{ sosRequest.image }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.state">State</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'gatewayApp.SosState.' + sosRequest.state }}">{{ sosRequest.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.rating">Rating</span></dt>
+        <dd>
+          <span>{{ sosRequest.rating }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.done">Done</span></dt>
+        <dd>
+          <span>{{ sosRequest.done }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewayApp.sosRequest.doneTime">Done Time</span></dt>
+        <dd>
+          <span>{{ sosRequest.doneTime | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sos-request', sosRequest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
