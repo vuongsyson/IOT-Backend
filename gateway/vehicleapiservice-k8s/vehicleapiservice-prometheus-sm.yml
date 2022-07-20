@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: vehicleapiservice-app
+  namespace: iot
+  labels:
+    team: iot
+spec:
+  selector:
+    matchLabels:
+      app: vehicleapiservice
+  endpoints:
+    - port: web
+      path: /prometheusMetrics

@@ -1,0 +1,58 @@
+commonLabels:
+  app.kubernetes.io/genereted-by: JHipster
+
+namespace: iot
+
+resources:
+  - namespace.yml
+  # Individual apps
+  - authenticationapisservice-k8s/authenticationapisservice-deployment.yml
+  - authenticationapisservice-k8s/authenticationapisservice-service.yml
+  - authenticationapisservice-k8s/authenticationapisservice-mysql.yml
+  - authenticationapisservice-k8s/authenticationapisservice-prometheus-sm.yml
+  - batteryapisservice-k8s/batteryapisservice-deployment.yml
+  - batteryapisservice-k8s/batteryapisservice-service.yml
+  - batteryapisservice-k8s/batteryapisservice-mysql.yml
+  - batteryapisservice-k8s/batteryapisservice-prometheus-sm.yml
+  - bssapisservice-k8s/bssapisservice-deployment.yml
+  - bssapisservice-k8s/bssapisservice-service.yml
+  - bssapisservice-k8s/bssapisservice-mysql.yml
+  - bssapisservice-k8s/bssapisservice-prometheus-sm.yml
+  - devicestateapiservice-k8s/devicestateapiservice-deployment.yml
+  - devicestateapiservice-k8s/devicestateapiservice-service.yml
+  - devicestateapiservice-k8s/devicestateapiservice-mysql.yml
+  - devicestateapiservice-k8s/devicestateapiservice-prometheus-sm.yml
+  - gateway-k8s/gateway-deployment.yml
+  - gateway-k8s/gateway-service.yml
+  - gateway-k8s/gateway-mysql.yml
+  - gateway-k8s/gateway-prometheus-sm.yml
+  - supportapisservice-k8s/supportapisservice-deployment.yml
+  - supportapisservice-k8s/supportapisservice-service.yml
+  - supportapisservice-k8s/supportapisservice-mysql.yml
+  - supportapisservice-k8s/supportapisservice-prometheus-sm.yml
+  - swapapiservice-k8s/swapapiservice-deployment.yml
+  - swapapiservice-k8s/swapapiservice-service.yml
+  - swapapiservice-k8s/swapapiservice-mysql.yml
+  - swapapiservice-k8s/swapapiservice-prometheus-sm.yml
+  - userapisservice-k8s/userapisservice-deployment.yml
+  - userapisservice-k8s/userapisservice-service.yml
+  - userapisservice-k8s/userapisservice-mysql.yml
+  - userapisservice-k8s/userapisservice-prometheus-sm.yml
+  - vehicleapiservice-k8s/vehicleapiservice-deployment.yml
+  - vehicleapiservice-k8s/vehicleapiservice-service.yml
+  - vehicleapiservice-k8s/vehicleapiservice-mysql.yml
+  - vehicleapiservice-k8s/vehicleapiservice-prometheus-sm.yml
+  - vehiclestateapis-k8s/vehiclestateapis-deployment.yml
+  - vehiclestateapis-k8s/vehiclestateapis-service.yml
+  - vehiclestateapis-k8s/vehiclestateapis-mysql.yml
+  - vehiclestateapis-k8s/vehiclestateapis-prometheus-sm.yml
+  # monitoring prometheus
+  - monitoring-k8s/jhipster-prometheus-cr.yml
+  - monitoring-k8s/jhipster-prometheus-crd.yml
+  - monitoring-k8s/jhipster-grafana.yml
+  - monitoring-k8s/jhipster-grafana-dashboard.yml
+  # service discovery eureka/consul
+  - registry-k8s/jhipster-registry.yml
+  - registry-k8s/application-configmap.yml
+
+patchesJson6902:
