@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: swapapiservice-app
+  namespace: iot
+  labels:
+    team: iot
+spec:
+  selector:
+    matchLabels:
+      app: swapapiservice
+  endpoints:
+    - port: web
+      path: /prometheusMetrics
