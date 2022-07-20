@@ -1,0 +1,28 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "authenticationApisService",
+      "batteryApisService",
+      "bssApisService",
+      "deviceStateApiService",
+      "gateway",
+      "supportApisService",
+      "swapApiService",
+      "userApisService",
+      "vehicleApiService",
+      "vehicleStateApis"
+    ],
+    "clusteredDbApps": {},
+    "directoryPath": "../",
+    "dockerPushCommand": "docker push",
+    "dockerRepositoryName": "099919086460.dkr.ecr.ap-southeast-1.amazonaws.com",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "NGZhYjYwYzExYzY4YzAxOTVkOGY5NDlkZjNiZWRjNzlmNTgyYjEwY2JlNTgyYmI0NmNmNWNlM2ZjMzIyZGQ2M2M5MzU1YThiNjA4MTYzNDQzZjBiYzdmNjkxYWFkOGE5NWI2Nw==",
+    "kubernetesNamespace": "iot",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "monitoring": "prometheus",
+    "serviceDiscoveryType": "eureka"
+  }
+}

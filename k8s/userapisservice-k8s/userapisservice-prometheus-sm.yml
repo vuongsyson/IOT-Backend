@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: userapisservice-app
+  namespace: iot
+  labels:
+    team: iot
+spec:
+  selector:
+    matchLabels:
+      app: userapisservice
+  endpoints:
+    - port: web
+      path: /prometheusMetrics

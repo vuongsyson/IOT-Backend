@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devicestateapiservice
+  namespace: iot
+  labels:
+    app: devicestateapiservice
+spec:
+  selector:
+    app: devicestateapiservice
+  ports:
+    - name: http
+      port: 8081
