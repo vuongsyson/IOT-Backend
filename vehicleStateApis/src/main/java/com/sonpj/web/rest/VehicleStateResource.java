@@ -1,28 +1,21 @@
 package com.sonpj.web.rest;
 
-import com.influxdb.client.InfluxDBClient;
-import com.influxdb.client.InfluxDBClientFactory;
-import com.influxdb.client.WriteApiBlocking;
-import com.influxdb.client.domain.WritePrecision;
 import com.sonpj.domain.VehicleState;
-import com.sonpj.domain.VehicleStateInfluxDB;
 import com.sonpj.repository.VehicleStateRepository;
 import com.sonpj.web.rest.errors.BadRequestAlertException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.ResponseUtil;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import tech.jhipster.web.util.HeaderUtil;
+import tech.jhipster.web.util.ResponseUtil;
 
 /**
  * REST controller for managing {@link com.sonpj.domain.VehicleState}.
@@ -45,20 +38,6 @@ public class VehicleStateResource {
         this.vehicleStateRepository = vehicleStateRepository;
     }
 
-    @PostMapping("/vehicle-states/influxdb/new")
-    public ResponseEntity<VehicleStateInfluxDB> createVehicleStateInfluxDB(@RequestBody VehicleStateInfluxDB vehicleStateInfluxDB) {
-
-        InfluxDBClient client = InfluxDBClientFactory.create("http://localhost:8086", "vaiecW6jW7DmyXNZPM22P7ykELdTxBr55nJPWZvQQ8S60Dfb5BUfZcE7GlnXP1ZiFgfBEUAb4BtyOvd7kcjSig==".toCharArray());
-
-        log.debug("REST request to save VehicleState influx DB: {}", vehicleStateInfluxDB);
-
-        WriteApiBlocking writeApi = client.getWriteApiBlocking();
-        writeApi.writeMeasurement("BatteryState", "VSS", WritePrecision.NS, vehicleStateInfluxDB);
-
-        return new ResponseEntity<>(vehicleStateInfluxDB, HttpStatus.OK);
-    }
-
-
     /**
      * {@code POST  /vehicle-states} : Create a new vehicleState.
      *
@@ -73,13 +52,16 @@ public class VehicleStateResource {
             throw new BadRequestAlertException("A new vehicleState cannot already have an ID", ENTITY_NAME, "idexists");
         }
         VehicleState result = vehicleStateRepository.save(vehicleState);
-        return ResponseEntity.created(new URI("/api/vehicle-states/" + result.getId())).headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString())).body(result);
+        return ResponseEntity
+            .created(new URI("/api/vehicle-states/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .body(result);
     }
 
     /**
      * {@code PUT  /vehicle-states/:id} : Updates an existing vehicleState.
      *
-     * @param id           the id of the vehicleState to save.
+     * @param id the id of the vehicleState to save.
      * @param vehicleState the vehicleState to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated vehicleState,
      * or with status {@code 400 (Bad Request)} if the vehicleState is not valid,
@@ -87,7 +69,10 @@ public class VehicleStateResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/vehicle-states/{id}")
-    public ResponseEntity<VehicleState> updateVehicleState(@PathVariable(value = "id", required = false) final Long id, @RequestBody VehicleState vehicleState) throws URISyntaxException {
+    public ResponseEntity<VehicleState> updateVehicleState(
+        @PathVariable(value = "id", required = false) final Long id,
+        @RequestBody VehicleState vehicleState
+    ) throws URISyntaxException {
         log.debug("REST request to update VehicleState : {}, {}", id, vehicleState);
         if (vehicleState.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -101,13 +86,16 @@ public class VehicleStateResource {
         }
 
         VehicleState result = vehicleStateRepository.save(vehicleState);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vehicleState.getId().toString())).body(result);
+        return ResponseEntity
+            .ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vehicleState.getId().toString()))
+            .body(result);
     }
 
     /**
      * {@code PATCH  /vehicle-states/:id} : Partial updates given fields of an existing vehicleState, field will ignore if it is null
      *
-     * @param id           the id of the vehicleState to save.
+     * @param id the id of the vehicleState to save.
      * @param vehicleState the vehicleState to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated vehicleState,
      * or with status {@code 400 (Bad Request)} if the vehicleState is not valid,
@@ -115,8 +103,11 @@ public class VehicleStateResource {
      * or with status {@code 500 (Internal Server Error)} if the vehicleState couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/vehicle-states/{id}", consumes = {"application/json", "application/merge-patch+json"})
-    public ResponseEntity<VehicleState> partialUpdateVehicleState(@PathVariable(value = "id", required = false) final Long id, @RequestBody VehicleState vehicleState) throws URISyntaxException {
+    @PatchMapping(value = "/vehicle-states/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    public ResponseEntity<VehicleState> partialUpdateVehicleState(
+        @PathVariable(value = "id", required = false) final Long id,
+        @RequestBody VehicleState vehicleState
+    ) throws URISyntaxException {
         log.debug("REST request to partial update VehicleState partially : {}, {}", id, vehicleState);
         if (vehicleState.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -129,42 +120,48 @@ public class VehicleStateResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Optional<VehicleState> result = vehicleStateRepository.findById(vehicleState.getId()).map(existingVehicleState -> {
-            if (vehicleState.getSpeed() != null) {
-                existingVehicleState.setSpeed(vehicleState.getSpeed());
-            }
-            if (vehicleState.getLat() != null) {
-                existingVehicleState.setLat(vehicleState.getLat());
-            }
-            if (vehicleState.getLon() != null) {
-                existingVehicleState.setLon(vehicleState.getLon());
-            }
-            if (vehicleState.getError() != null) {
-                existingVehicleState.setError(vehicleState.getError());
-            }
-            if (vehicleState.getSerialNumber() != null) {
-                existingVehicleState.setSerialNumber(vehicleState.getSerialNumber());
-            }
-            if (vehicleState.getStatus() != null) {
-                existingVehicleState.setStatus(vehicleState.getStatus());
-            }
-            if (vehicleState.getOdo() != null) {
-                existingVehicleState.setOdo(vehicleState.getOdo());
-            }
-            if (vehicleState.getPower() != null) {
-                existingVehicleState.setPower(vehicleState.getPower());
-            }
-            if (vehicleState.getThrottle() != null) {
-                existingVehicleState.setThrottle(vehicleState.getThrottle());
-            }
-            if (vehicleState.getTime() != null) {
-                existingVehicleState.setTime(vehicleState.getTime());
-            }
+        Optional<VehicleState> result = vehicleStateRepository
+            .findById(vehicleState.getId())
+            .map(existingVehicleState -> {
+                if (vehicleState.getSpeed() != null) {
+                    existingVehicleState.setSpeed(vehicleState.getSpeed());
+                }
+                if (vehicleState.getLat() != null) {
+                    existingVehicleState.setLat(vehicleState.getLat());
+                }
+                if (vehicleState.getLon() != null) {
+                    existingVehicleState.setLon(vehicleState.getLon());
+                }
+                if (vehicleState.getError() != null) {
+                    existingVehicleState.setError(vehicleState.getError());
+                }
+                if (vehicleState.getSerialNumber() != null) {
+                    existingVehicleState.setSerialNumber(vehicleState.getSerialNumber());
+                }
+                if (vehicleState.getStatus() != null) {
+                    existingVehicleState.setStatus(vehicleState.getStatus());
+                }
+                if (vehicleState.getOdo() != null) {
+                    existingVehicleState.setOdo(vehicleState.getOdo());
+                }
+                if (vehicleState.getPower() != null) {
+                    existingVehicleState.setPower(vehicleState.getPower());
+                }
+                if (vehicleState.getThrottle() != null) {
+                    existingVehicleState.setThrottle(vehicleState.getThrottle());
+                }
+                if (vehicleState.getTime() != null) {
+                    existingVehicleState.setTime(vehicleState.getTime());
+                }
 
-            return existingVehicleState;
-        }).map(vehicleStateRepository::save);
+                return existingVehicleState;
+            })
+            .map(vehicleStateRepository::save);
 
-        return ResponseUtil.wrapOrNotFound(result, HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vehicleState.getId().toString()));
+        return ResponseUtil.wrapOrNotFound(
+            result,
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vehicleState.getId().toString())
+        );
     }
 
     /**
@@ -201,6 +198,9 @@ public class VehicleStateResource {
     public ResponseEntity<Void> deleteVehicleState(@PathVariable Long id) {
         log.debug("REST request to delete VehicleState : {}", id);
         vehicleStateRepository.deleteById(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity
+            .noContent()
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .build();
     }
 }

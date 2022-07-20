@@ -101,11 +101,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.influxdb</groupId>
-            <artifactId>influxdb-client-java</artifactId>
-            <version>6.1.0</version>
-        </dependency>
-        <dependency>
             <groupId>tech.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
         </dependency>
